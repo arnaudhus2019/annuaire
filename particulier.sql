@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 30 Octobre 2019 à 10:21
+-- Généré le :  Mer 30 Octobre 2019 à 13:55
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -28,13 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `particulier` (
   `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
-  `nomPrenom` varchar(256) DEFAULT NULL,
-  `adresse` varchar(256) DEFAULT NULL,
-  `codePostal` varchar(10) DEFAULT NULL,
-  `ville` varchar(50) DEFAULT NULL,
-  `numTel` varchar(15) DEFAULT NULL,
+  `nomPrenom` varchar(256) CHARACTER SET utf8 DEFAULT NULL,
+  `adresse` varchar(256) CHARACTER SET utf8 DEFAULT NULL,
+  `codePostal` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `ville` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `numTel` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Contenu de la table `particulier`
@@ -58,13 +58,14 @@ INSERT INTO `particulier` (`id`, `nomPrenom`, `adresse`, `codePostal`, `ville`, 
 (15, 'Faux Jean-Marc', '1 av Rouet', '44380 ', 'PORNICHET', '02 44 07 50 59'),
 (16, 'Flat Jean-Claude', '12 Bis av Mouettes', '44760', 'BERNERIE EN RETZ (LA)', '02 40 21 28 14'),
 (17, 'Jambou Marie', '2 imp Clément Ader', '44150', 'VAIR SUR LOIRE', '02 40 98 45 86'),
-(18, 'Jalta David', '1 r Pierre Etienne Flandin', '44200', ' NANTES', '02 55 10 24 08'),
+(18, 'Jalta Gilbert', '1 r Pierre Etienne Flandin', '44200', ' NANTES', '02 55 10 24 08'),
 (19, 'Sotin Xavier', '44 r Wolfgang Amadeus Mozart', '44600', 'SAINT NAZAIRE', '02 40 00 15 79'),
 (20, 'Sarot Joël', '211 la Perthuisiere', '44690', 'MAISDON SUR SÈVRE', '02 40 06 68 13'),
 (21, 'Valentin Grégory', '19 Les Brosses', '44270', 'PAULX', '02 28 25 12 61'),
 (22, 'Vila Olivier', '11 r Acheneau', '44680', 'SAINT MARS DE COUTAIS', '02 28 01 10 40'),
 (23, 'Yves Michaël', '19 Bis r Courtils', '44690', 'LA HAYE FOUASSIÈRE', '02 40 04 07 95'),
-(24, 'Yves Eléna', '1 r Rhône', '44100', 'NANTES', '02 53 45 73 14');
+(24, 'Yves Eléna', '1 r Rhône', '44100', 'NANTES', '02 53 45 73 14'),
+(25, 'julie durand', '17 rue des peupliers', '44000', 'Nantes', '06 68 51 39 77');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Annuaire</title>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type"  charset="UTF-8" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -29,7 +29,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Entrez un nom" required>
+                  <input type="text" class="form-control" id="designation" name="designation" placeholder="Entrez une raison sociale" required>
                 </div>
               </div>
               <div class="form-group">
@@ -59,5 +59,47 @@
       </div>
     </div>
   </div>
+  <?php include"Bdd.php" ?>
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+        <table class="table table-striped table-condensed">
+          <thead>
+            <tr>
+              <th>Raison sociale</th>
+              <th>Adresse</th>
+              <th>Code postal</th>
+              <th>Ville</th>
+              <th>Numéro telephone</th>
+            </tr>
+          </thead>
+          <tbody>
 
+            <?php
+            $bdd = new Bdd;
+            $bdd->connect();
+            $result = $bdd->rechercheProfessionnel();
+
+            while($row = $result->fetch_array())
+            {
+
+              echo "<tr>";
+              echo "	<td>".$row['designation']."</td>";
+              echo "	<td>".$row['adresse']."</td>";
+              echo "	<td>".$row['codePostal']."</td>";
+              echo "	<td>".$row['ville']."</td>";
+              echo "	<td>".$row['numTel']."</td>";
+              echo "</tr>";
+            }
+
+            $result->close();
+            $bdd->close();
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>
