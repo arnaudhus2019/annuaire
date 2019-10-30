@@ -1,5 +1,4 @@
 .form-search {
-    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     width: 20em
@@ -8,5 +7,6 @@
   margin-top:5px;
   margin-left:550px;
   margin-right: auto;
+  margin-bottom: 50px;
   width: auto;
 }

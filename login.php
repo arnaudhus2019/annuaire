@@ -18,7 +18,7 @@
           <input type="text" id="login" name="login" size="20" placeholder="votre.mail@mail.fr">
           <label for="password">Mot de passe : </label>
           <input type="text" id="password" name="password">
-          <input type="submit" value="Rechercher" class="btn btn-info">
+          <input type="submit" value="Valider" class="btn btn-info">
         </div>
       </form>
     </body>
