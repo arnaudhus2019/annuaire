@@ -49,6 +49,7 @@
                    <div class="text-center">
                     <input type="submit" value="Rechercher" class="btn btn-info btn-block rounded-0 py-2">
                     <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
+					<input type="button" value="Particulier" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='particulier.php';">
                    </div>
                 </div>
                 </div>

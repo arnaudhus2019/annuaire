@@ -27,3 +27,6 @@ mdp VARCHAR(256),
 sessions BOOLEAN,
 dateConnexion VARCHAR(50)
 );
+
+USE annuaire;
+INSERT INTO particulier VALUES (null, 'julie durand', '17 rue des peupliers', '44000', 'Nantes', '06 68 51 39 77');

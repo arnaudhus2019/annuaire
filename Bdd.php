@@ -39,6 +39,27 @@ class Bdd {
 		
 		return $result;
 	}
+	
+	function rechercheParticulier($_POST['nom'], $_POST['prenom'], $_POST['cp'], $_POST['ville'])
+	{
+		// sql 
+		$sql = "SELECT * FROM annuaire.professionnel where nom like ='%".$_POST['nom']."%'";
+
+		if ($result = mysqli_query($this->_conn, $sql)) {
+			echo "Recherche ok<br>";
+		} else {
+			printError();
+		}
+		
+		printf("Select a retourne %d lignes.<br>", $result->num_rows);
+
+		/* Libération du jeu de résultats */
+		$result->close();
+		
+		return $result;
+	}
+	
+	$_POST['nom']
 
 	function printError(){
 		
@@ -49,6 +70,6 @@ class Bdd {
 $bdd = new Bdd;
 
 $bdd->connect();
-$bdd->rechercheProfessionnel();
+$bdd->rechercheParticulier();
 $bdd->close();
 ?> 
