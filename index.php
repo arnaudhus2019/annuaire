@@ -10,8 +10,8 @@
 </head>
 <body>
   <?php
-    include"login.php"
-   ?>
+  include"login.php"
+  ?>
   <div class="container">
     <h2 class="text-center">Annuaire de Recherche</h2>
     <div class="row justify-content-center">
@@ -60,39 +60,40 @@
     </div>
   </div>
   <?php include"Bdd.php" ?>
-  <div class="container">
-    <div class="row">
-      <div class="span5">
-        <table class="table table-striped table-condensed">
-          <thead>
-            <tr>
-              <th>Raison sociale</th>
-              <th>Adresse</th>
-              <th>Code postal</th>
-              <th>Ville</th>
-              <th>Numéro telephone</th>
-            </tr>
-          </thead>
-          <tbody>
 
-            <?php
-            $bdd = new Bdd;
-            $bdd->connect();
-            $result = $bdd->rechercheProfessionnel();
 
-            while($row = $result->fetch_array())
-            {
-
-              echo "<tr>";
-              echo "	<td>".$row['designation']."</td>";
-              echo "	<td>".$row['adresse']."</td>";
-              echo "	<td>".$row['codePostal']."</td>";
-              echo "	<td>".$row['ville']."</td>";
-              echo "	<td>".$row['numTel']."</td>";
-              echo "</tr>";
+  <?php
+  $bdd = new Bdd;
+  $bdd->connect();
+  $result = $bdd->rechercheProfessionnel();
+  if(isset($result)){ ?>
+    <div class="container"  style="margin: 0 auto; width: 850px;">
+      <div class="row">
+        <div class="span5">
+          <table class="table table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>Raison sociale</th>
+                <th>Adresse</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Numéro telephone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              while($row = $result->fetch_array())
+              {
+                echo "<tr>";
+                echo "	<td>".$row['designation']."</td>";
+                echo "	<td>".$row['adresse']."</td>";
+                echo "	<td>".$row['codePostal']."</td>";
+                echo "	<td>".$row['ville']."</td>";
+                echo "	<td>".$row['numTel']."</td>";
+                echo "</tr>";
+              }
+              $result->close();
             }
-
-            $result->close();
             $bdd->close();
             ?>
           </tbody>
@@ -100,6 +101,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>

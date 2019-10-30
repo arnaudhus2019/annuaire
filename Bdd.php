@@ -28,25 +28,31 @@ class Bdd {
   public function rechercheProfessionnel()
   {
     // sql
-    $sql = "SELECT designation,adresse, codePostal, ville, numTel  FROM annuaire.professionnel where designation like '%".$_POST['designation']."%'";
+    $return = "";
+    if(isset($_POST['designation'])){
+      $sql = "SELECT designation,adresse, codePostal, ville, numTel  FROM annuaire.professionnel where designation like '%".$_POST['designation']."%'";
 
-    if ($result = mysqli_query($this->_conn, $sql)) {
-      //echo "Recherche ok<br>";
-    } else {
-      $this->printError();
+
+      if ($result = mysqli_query($this->_conn, $sql)) {
+        //echo "Recherche ok<br>";
+      } else {
+        $this->printError();
+      }
+      return $result;
     }
-    return $result;
   }
 
   public function rechercheParticulier()
   {
 
     // sql
-    $sql = "SELECT nomPrenom, adresse, codePostal, ville, numTel
-        FROM annuaire.particulier
-        where (nomPrenom like '%".$_POST['nom']."%".$_POST['prenom']."%')
-        and codePostal like '%".$_POST['cp']."%'
-        and ville like '%".$_POST['ville']."%'";
+    $return = "";
+    if(isset($_POST['nom'])){
+      $sql = "SELECT nomPrenom, adresse, codePostal, ville, numTel
+      FROM annuaire.particulier
+      where (nomPrenom like '%".$_POST['nom']."%".$_POST['prenom']."%')
+      and codePostal like '%".$_POST['cp']."%'
+      and ville like '%".$_POST['ville']."%'";
 
 
       if ($result = mysqli_query($this->_conn, $sql)) {
@@ -57,12 +63,13 @@ class Bdd {
 
       return $result;
     }
-
-    public function printError(){
-
-      echo "Error SQL : " . mysqli_error($this->_conn) . "<br>";
-    }
   }
 
+  public function printError(){
 
-  ?>
+    echo "Error SQL : " . mysqli_error($this->_conn) . "<br>";
+  }
+}
+
+
+?>
