@@ -13,7 +13,7 @@ class Bdd {
 		if($this->_conn->connect_error){ 
 			die('Erreur : ' .$this->_conn->connect_error); 
 		} 
-		echo 'Connexion réussie<br>';
+		//echo 'Connexion réussie<br>';
     }
 	
 	function close() {
@@ -21,7 +21,7 @@ class Bdd {
 		mysqli_close($this->_conn);
 	}
 	
-	function rechercheProfessionnel()
+	public function rechercheProfessionnel()
 	{
 		// sql 
 		$sql = "SELECT * FROM annuaire.professionnel";
@@ -32,7 +32,7 @@ class Bdd {
 			printError();
 		}
 		
-		printf("Select a retourne %d lignes.<br>", $result->num_rows);
+		//printf("Select a retourne %d lignes.<br>", $result->num_rows);
 
 		/* Libération du jeu de résultats */
 		$result->close();
@@ -40,36 +40,25 @@ class Bdd {
 		return $result;
 	}
 	
-	function rechercheParticulier($_POST['nom'], $_POST['prenom'], $_POST['cp'], $_POST['ville'])
+	public function rechercheParticulier()
 	{
 		// sql 
-		$sql = "SELECT * FROM annuaire.professionnel where nom like ='%".$_POST['nom']."%'";
+		$sql = "SELECT nomPrenom, adresse, codePostal, ville, numTel FROM annuaire.particulier where nomPrenom like '%".$_POST['nom']."%'";
 
 		if ($result = mysqli_query($this->_conn, $sql)) {
-			echo "Recherche ok<br>";
+			//echo "Recherche ok<br>";
 		} else {
-			printError();
+			$this->printError();
 		}
-		
-		printf("Select a retourne %d lignes.<br>", $result->num_rows);
-
-		/* Libération du jeu de résultats */
-		$result->close();
 		
 		return $result;
 	}
-	
-	$_POST['nom']
 
-	function printError(){
+	public function printError(){
 		
 		echo "Error SQL : " . mysqli_error($this->_conn) . "<br>";
 	}
 }
 	
-$bdd = new Bdd;
 
-$bdd->connect();
-$bdd->rechercheParticulier();
-$bdd->close();
 ?> 

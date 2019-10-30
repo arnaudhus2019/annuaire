@@ -7,6 +7,7 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
       </head>
       <body>
         <?php include"login.php" ?>
@@ -14,7 +15,7 @@
           <h2 class="text-center">Annuaire de Recherche des particuliers</h2>
 	         <div class="row justify-content-center">
 		         <div class="col-12 col-md-8 col-lg-6 pb-5">
-              <form action="Bdd.php" method="post">
+              <form action="particulier.php" method="post">
                <div class="card border-primary rounded-0">
                 <div class="card-header p-0">
                  <div class="bg-info text-white text-center py-2">
@@ -64,5 +65,55 @@
         </div>
        </div>
      </div>
-      </body>
+	 
+	 <?php include"Bdd.php" ?>
+	 <div class="container">
+	<div class="row">
+		<div class="span5">
+            <table class="table table-striped table-condensed">
+                  <thead>
+                  <tr>
+                      <th>Nom Prenom</th>
+                      <th>Adresse</th>
+                      <th>Code postal</th>
+                      <th>Nantes</th>
+					  <th>Numero telephone</th>					  
+                  </tr>
+              </thead>   
+              <tbody>
+                
+				<?php
+					$bdd = new Bdd;
+
+					$bdd->connect();
+					
+					$result = $bdd->rechercheParticulier();
+					
+					
+					while($row = $result->fetch_array())
+					{
+						
+						echo "<tr>";
+						echo "	<td>".$row['nomPrenom']."</td>";
+						echo "	<td>".$row['adresse']."</td>";
+						echo "	<td>".$row['codePostal']."</td>";
+						echo "	<td>".$row['ville']."</td>";                                     
+						echo "	<td>".$row['numTel']."</td>"; 
+						echo "</tr>";
+					}
+					
+					$result->close();
+					
+					$bdd->close();
+				?>                                  
+              </tbody>
+            </table>
+            </div>
+	</div>
+</div>
+	 
+	
+	  
+	 
+	 </body>
 </html>
