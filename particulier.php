@@ -23,7 +23,7 @@
                   <h3><i class="fas fa-search"></i> Recherche</h3>
                  </div>
                 </div>
-                <div class="card-body p-3">
+              <div class="card-body p-3">
                  <div class="form-group">
                   <div class="input-group mb-2">
                    <div class="input-group-prepend">
@@ -33,8 +33,7 @@
 					value="<?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" required>
                   </div>
                 </div>
-              </div>
-              <div class="form-group">
+				<div class="form-group">
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
