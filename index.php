@@ -37,7 +37,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="name" name="cp" placeholder="75000">
+                  <input type="text" class="form-control" id="cp" name="cp" placeholder="75000">
                 </div>
               </div>
               <div class="form-group">
@@ -45,7 +45,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                   </div>
-                  <input type="text" class="form-control" placeholder="Paris"></textarea>
+                  <input type="text" class="form-control" id="ville" name="ville" placeholder="Paris"></textarea>
                 </div>
               </div>
               <div class="text-center">

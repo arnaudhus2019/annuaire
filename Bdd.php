@@ -30,7 +30,11 @@ class Bdd {
     // sql
     $return = "";
     if(isset($_POST['designation'])){
-      $sql = "SELECT designation,adresse, codePostal, ville, numTel  FROM annuaire.professionnel where designation like '%".$_POST['designation']."%'";
+      $sql = "SELECT designation,adresse, codePostal, ville, numTel  
+		FROM annuaire.professionnel 
+		where designation like '%".$_POST['designation']."%'
+		and codePostal like '%".$_POST['cp']."%'
+		and ville like '%".$_POST['ville']."%'";
 
 
       if ($result = mysqli_query($this->_conn, $sql)) {
