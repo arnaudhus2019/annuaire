@@ -2,7 +2,7 @@
 <html>
     <head>
        <title>Annuaire</title>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -15,7 +15,7 @@
           <h2 class="text-center">Annuaire de Recherche des particuliers</h2>
 	         <div class="row justify-content-center">
 		         <div class="col-12 col-md-8 col-lg-6 pb-5">
-              <form action="particulier.php" method="post">
+              <form action="" method="post" target="_self">
                <div class="card border-primary rounded-0">
                 <div class="card-header p-0">
                  <div class="bg-info text-white text-center py-2">
@@ -28,7 +28,8 @@
                    <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                    </div>
-                   <input type="text" class="form-control" id="name" name="nom" placeholder="Entrez un nom" required>
+                   <input type="text" class="form-control" id="name" name="nom" placeholder="Entrez un nom" 
+					value="<?php if (isset($_POST['nom'])){echo $_POST['nom'];} ?>" required>
                   </div>
                   </div>
 				  <div class="form-group">
@@ -36,7 +37,8 @@
                    <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                    </div>
-                   <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez un prenom">
+                   <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez un prenom"
+					value="<?php if (isset($_POST['prenom'])){echo $_POST['prenom'];} ?>">
                   </div>
                   </div>
                   <div class="form-group">
@@ -44,7 +46,8 @@
                     <div class="input-group-prepend">
                      <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                     </div>
-                    <input type="text" class="form-control" id="cp" name="cp" placeholder="75000">
+                    <input type="text" class="form-control" id="cp" name="cp" placeholder="75000"
+						value="<?php if (isset($_POST['cp'])){echo $_POST['cp'];} ?>">
                    </div>
                   </div>
                   <div class="form-group">
@@ -52,7 +55,10 @@
                     <div class="input-group-prepend">
                      <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                     </div>
-                    <input type="text" class="form-control" id="ville" name="ville" placeholder="Paris"></textarea>
+                    <input type="text" class="form-control" id="ville" name="ville" placeholder="Paris" 
+						value="<?php if (isset($_POST['ville'])){echo $_POST['ville'];} ?>">
+					
+					</textarea>
                    </div>
                    </div>
                    <div class="text-center">
@@ -67,16 +73,16 @@
      </div>
 	 
 	 <?php include"Bdd.php" ?>
-	 <div class="container">
+	 <div class="container" style="margin: 0 auto; width: 850px;">
 	<div class="row">
 		<div class="span5">
             <table class="table table-striped table-condensed">
                   <thead>
                   <tr>
-                      <th>Nom Prenom</th>
+                      <th>Nom Prénom</th>
                       <th>Adresse</th>
                       <th>Code postal</th>
-                      <th>Nantes</th>
+                      <th>Ville</th>
 					  <th>Numero telephone</th>					  
                   </tr>
               </thead>   

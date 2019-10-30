@@ -28,5 +28,6 @@ sessions BOOLEAN,
 dateConnexion VARCHAR(50)
 );
 
+-- Exemple :
 USE annuaire;
 INSERT INTO particulier VALUES (null, 'julie durand', '17 rue des peupliers', '44000', 'Nantes', '06 68 51 39 77');
