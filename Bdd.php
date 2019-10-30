@@ -6,8 +6,7 @@ class Bdd {
     private $_conn;
 
     public function connect() {
-<<<<<<< HEAD
-        
+
 		$this->_conn = new mysqli($this->_servername, $this->_username, $this->_password); 
 		
 		mysqli_query($this->_conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', 
@@ -19,16 +18,6 @@ class Bdd {
 		} 
 		//echo 'Connexion réussie<br>';
 		
-=======
-
-		$this->_conn = new mysqli($this->_servername, $this->_username, $this->_password);
-
-		//On vï¿½rifie la connexion
-		if($this->_conn->connect_error){
-			die('Erreur : ' .$this->_conn->connect_error);
-		}
-		//echo 'Connexion rï¿½ussie<br>';
->>>>>>> 06e602ba66cc0cfb547db457f880dd9d4c110f73
     }
 
 	function close() {
@@ -51,7 +40,7 @@ class Bdd {
 
 	public function rechercheParticulier()
 	{
-<<<<<<< HEAD
+
 		// sql 
 		$sql = "SELECT nomPrenom, adresse, codePostal, ville, numTel 
 		FROM annuaire.particulier 
@@ -59,10 +48,7 @@ class Bdd {
 		or nomPrenom like '%".$_POST['prenom']."%')
 		and codePostal like '%".$_POST['cp']."%'
 		and ville like '%".$_POST['ville']."%'";
-=======
-		// sql
-		$sql = "SELECT nomPrenom, adresse, codePostal, ville, numTel FROM annuaire.particulier where nomPrenom like '%".$_POST['nom']."%'";
->>>>>>> 06e602ba66cc0cfb547db457f880dd9d4c110f73
+
 
 		if ($result = mysqli_query($this->_conn, $sql)) {
 			//echo "Recherche ok<br>";
