@@ -36,7 +36,7 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                   </div>
-                  <input type="text" class="form-control" id="name" name="cp" placeholder="75000">
+                  <input type="text" class="form-control" id="cp" name="cp" placeholder="75000">
                 </div>
               </div>
               <div class="form-group">
@@ -44,13 +44,14 @@
                   <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                   </div>
-                  <input type="text" class="form-control" placeholder="Paris"></textarea>
+                  <input type="text" class="form-control" id="ville" name="ville" placeholder="Paris"></textarea>
                 </div>
               </div>
               <div class="text-center">
                 <input type="submit" value="Rechercher" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="button" value="Particulier" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='particulier.php';">
+				<input type="button" value="Inverse" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='inverse.php';">
               </div>
             </div>
           </div>
