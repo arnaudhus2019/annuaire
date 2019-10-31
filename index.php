@@ -52,6 +52,7 @@
                 <input type="submit" value="Rechercher" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="button" value="Particulier" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='particulier.php';">
+				<input type="button" value="Inverse" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='inverse.php';">
               </div>
             </div>
           </div>

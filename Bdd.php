@@ -16,7 +16,7 @@ class Bdd {
     if($this->_conn->connect_error){
       die('Erreur : ' .$this->_conn->connect_error);
     }
-    //echo 'Connexion r�ussie<br>';
+    //echo 'Connexion reussie<br>';
 
   }
 
@@ -57,6 +57,32 @@ class Bdd {
       where (nomPrenom like '%".$_POST['nom']."%".$_POST['prenom']."%')
       and codePostal like '%".$_POST['cp']."%'
       and ville like '%".$_POST['ville']."%'";
+
+
+      if ($result = mysqli_query($this->_conn, $sql)) {
+        //echo "Recherche ok<br>";
+      } else {
+        $this->printError();
+      }
+
+      return $result;
+    }
+  }
+  
+  public function rechercheInversee()
+  {
+
+    // sql
+    $return = "";
+    if(isset($_POST['numero'])){
+      $sql = "SELECT pro.designation as nomPrenom, pro.adresse, pro.codePostal, pro.ville, pro.numTel 
+		FROM annuaire.professionnel pro 
+		where REPLACE(pro.numTel, ' ', '') 
+		like REPLACE('".$_POST['numero']."', ' ', '')
+		UNION
+		SELECT par.nomPrenom, par.adresse, par.codePostal, par.ville, par.numTel 
+		FROM annuaire.particulier par 
+		where REPLACE(par.numTel, ' ', '') like REPLACE('".$_POST['numero']."', ' ', '')";
 
 
       if ($result = mysqli_query($this->_conn, $sql)) {
