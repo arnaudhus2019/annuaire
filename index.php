@@ -1,3 +1,4 @@
+<?php   session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-  <?php
-  include"login.php"
-  ?>
+      <input type="button" value="Connexion" class="btn btn-info  rounded-5 py-2" onclick="window.location='login.php';">
   <div class="container">
     <h2 class="text-center">Annuaire de Recherche</h2>
     <div class="row justify-content-center">
@@ -59,9 +58,9 @@
       </div>
     </div>
   </div>
-  <?php include"Bdd.php" ?>
 
 
+  <?php include"Bdd.php"?>
   <?php
   $bdd = new Bdd;
   $bdd->connect();

@@ -65,6 +65,26 @@ class Bdd {
     }
   }
 
+  public function rechercheAbonne($login, $password)
+  {
+
+    // sql
+    $return = "";
+    if(isset($login) and isset($password)){
+      $sql = "SELECT mail, mdp
+      FROM annuaire.abonnes
+      where (mail = '".$login."' and mdp = '".$password."');";
+      if ($result = mysqli_query($this->_conn, $sql)) {
+        //echo "Recherche ok<br>";
+      } else {
+        $this->printError();
+      }
+
+      return $result;
+    }
+  }
+
+
   public function printError(){
 
     echo "Error SQL : " . mysqli_error($this->_conn) . "<br>";
