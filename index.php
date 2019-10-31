@@ -55,8 +55,8 @@
                 <?php
                   if($_SESSION['session']== 1){
                     echo '<input type="button" value="Inverse" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location="inverse.php";">';
+                  }else{
                   }
-
                  ?>
 
               </div>
