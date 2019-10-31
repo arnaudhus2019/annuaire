@@ -1,4 +1,4 @@
-<?php   session_start(); ?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-      <input type="button" value="Connexion" class="btn btn-info  rounded-5 py-2" onclick="window.location='login.php';">
+  <input type="button" value="Connexion" class="btn btn-info  rounded-5 py-2" onclick="window.location='login.php';">
   <div class="container">
     <h2 class="text-center">Annuaire de Recherche</h2>
     <div class="row justify-content-center">
@@ -51,7 +51,14 @@
                 <input type="submit" value="Rechercher" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="reset" value="Annuler" class="btn btn-info btn-block rounded-0 py-2">
                 <input type="button" value="Particulier" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='particulier.php';">
-				<input type="button" value="Inverse" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location='inverse.php';">
+
+                <?php
+                  if($_SESSION['session']== 1){
+                    echo '<input type="button" value="Inverse" class="btn btn-info btn-block rounded-0 py-2" onclick="window.location="inverse.php";">';
+                  }
+
+                 ?>
+
               </div>
             </div>
           </div>

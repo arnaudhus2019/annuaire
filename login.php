@@ -44,11 +44,20 @@
       if ($resultat->num_rows == 1) {
         $_SESSION['login'] = $login;
         $_SESSION['password'] = $mdp;
-
         $authOK = true;
-        echo $_SESSION['login'];
+        $_SESSION['session'] = $authOK;
+        header('Location: index.php');
+      }else{
+        $_SESSION['session'] = 'false';
+        ?>
+        <script type="text/javascript">
+        alert("login ou mot de passe incorrect");
+        </script>
+
+        <?php
+        //echo 'login ou mot de passe incorrect';
       }
-      echo 'invalidé';
+
       $bdd->close();
     } ?>
 
